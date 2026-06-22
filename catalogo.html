@@ -93,10 +93,13 @@ header p{color:var(--w60);max-width:520px;margin:20px auto 0;font-weight:300;fon
   font-size:10px;font-weight:700;letter-spacing:.04em;
   padding:4px 11px;border-radius:9999px;
 }
+.prod-badge-hot{background:linear-gradient(135deg,#ff6b35,#ff0055);color:#fff;}
 .prod-body{
   padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;
   background:rgba(13,20,32,0.97);
 }
+.prod-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.prod-tag{padding:3px 9px;border-radius:9999px;font-size:10px;color:var(--w40);border:1px solid var(--w10);}
 .prod-name{
   font-family:'Montserrat Alternates',sans-serif;font-weight:900;font-style:italic;
   font-size:clamp(17px,2.2vw,22px);letter-spacing:-.5px;line-height:1.05;
@@ -150,105 +153,147 @@ footer .brand{font-size:16px;margin-bottom:8px;}
 
 <main class="catalog">
   <div class="prod-grid" id="grid">
-    <!-- Las imágenes viven en assets/images/productos/producto-01…11.png.
-         Editá el nombre y la descripción de cada producto según corresponda. -->
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-01.png" alt="Producto 01" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge prod-badge-hot">🏆 Campeón</span>
+        <img src="assets/images/productos/producto-01.png" alt="Camiseta Argentina Campeón" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 01</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2001">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Adidas</span><span class="prod-tag">AFA</span><span class="prod-tag">FIFA 2022</span></div>
+        <div class="prod-name">Camiseta Argentina Campeón</div>
+        <div class="prod-desc">Edición especial con parche FIFA World Cup 2022. 3 estrellas. Todos los talles.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20la%20Camiseta%20Argentina" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-02.png" alt="Producto 02" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge prod-badge-hot">⚽ Messi</span>
+        <img src="assets/images/productos/producto-02.png" alt="Camiseta Messi #10" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 02</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2002">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Adidas</span><span class="prod-tag">#10</span><span class="prod-tag">1893</span></div>
+        <div class="prod-name">Camiseta Messi #10</div>
+        <div class="prod-desc">Camiseta oficial con dorsal Messi. Versión Player. Tela ClimasCool de alta calidad.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20la%20Camiseta%20Messi%20%2310" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-03.png" alt="Producto 03" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge prod-badge-hot">🏆 Campeón</span>
+        <img src="assets/images/productos/producto-03.png" alt="Camiseta Argentina Campeón" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 03</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2003">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Adidas</span><span class="prod-tag">AFA</span><span class="prod-tag">3 Estrellas</span></div>
+        <div class="prod-name">Camiseta Argentina Campeón</div>
+        <div class="prod-desc">Edición especial con parche FIFA World Cup 2022. 3 estrellas. Todos los talles.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20la%20Camiseta%20Argentina" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-04.png" alt="Producto 04" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge">Nuevo</span>
+        <img src="assets/images/productos/producto-04.png" alt="Pack Accesorios Apple" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 04</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2004">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Apple</span><span class="prod-tag">Pack</span></div>
+        <div class="prod-name">Pack Accesorios Apple</div>
+        <div class="prod-desc">AirPods, Battery Pack MagSafe, cable USB-C y cargador 20W. Todo en caja sellada.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20el%20Pack%20Apple" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-05.png" alt="Producto 05" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge">Nuevo</span>
+        <img src="assets/images/productos/producto-05.png" alt="Cable + Cargador Apple" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 05</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2005">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Apple</span><span class="prod-tag">Cable</span></div>
+        <div class="prod-name">Cable + Cargador Apple</div>
+        <div class="prod-desc">Cable USB-C Lightning original con cargador 20W. Carga rápida certificada. Caja sellada.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20el%20Cable%20y%20Cargador%20Apple" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-06.png" alt="Producto 06" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge">⚡ Top</span>
+        <img src="assets/images/productos/producto-06.png" alt="Kit iPhone 16 Pro Max" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 06</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2006">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Apple</span><span class="prod-tag">iPhone</span><span class="prod-tag">16 Pro</span></div>
+        <div class="prod-name">Kit iPhone 16 Pro Max</div>
+        <div class="prod-desc">Cable USB-C 60W + cargador 20W. Compatibles con iPhone 16 Pro Max. Originales.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20el%20Kit%20iPhone%2016%20Pro%20Max" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-07.png" alt="Producto 07" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge">🔊 Audio</span>
+        <img src="assets/images/productos/producto-07.png" alt="JBL Go 2" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 07</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2007">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">JBL</span><span class="prod-tag">Bluetooth</span><span class="prod-tag">Portátil</span></div>
+        <div class="prod-name">JBL Go 2</div>
+        <div class="prod-desc">Parlante bluetooth resistente al agua. Batería de hasta 5hs. Sonido JBL auténtico.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20el%20JBL%20Go%202" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-08.png" alt="Producto 08" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge prod-badge-hot">🔥 Hot</span>
+        <img src="assets/images/productos/producto-08.png" alt="AirPods Pro 2" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 08</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2008">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Apple</span><span class="prod-tag">Audio</span><span class="prod-tag">ANC</span></div>
+        <div class="prod-name">AirPods Pro 2</div>
+        <div class="prod-desc">Cancelación activa de ruido, audio espacial, resistencia al agua. Caja sellada.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20los%20AirPods%20Pro%202" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-09.png" alt="Producto 09" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge">Apple</span>
+        <img src="assets/images/productos/producto-09.png" alt="MagSafe Battery Pack" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 09</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2009">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Apple</span><span class="prod-tag">MagSafe</span></div>
+        <div class="prod-name">MagSafe Battery Pack</div>
+        <div class="prod-desc">Cargador magnético inalámbrico para iPhone. Carga mientras usás el celu. Caja sellada.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20el%20MagSafe%20Battery%20Pack" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-10.png" alt="Producto 10" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge prod-badge-hot">🔥 Hot</span>
+        <img src="assets/images/productos/producto-10.png" alt="Elf Bar" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 10</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2010">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Elf Bar</span><span class="prod-tag">Importado</span></div>
+        <div class="prod-name">Elf Bar</div>
+        <div class="prod-desc">Vape desechable importado. Sabores premium disponibles. Preguntá por el catálogo.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20los%20Elf%20Bar" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="prod-card reveal">
-      <div class="prod-img-wrap"><img src="assets/images/productos/producto-11.png" alt="Producto 11" loading="lazy"/></div>
+      <div class="prod-img-wrap">
+        <span class="prod-badge prod-badge-hot">🔥 Hot</span>
+        <img src="assets/images/productos/producto-11.png" alt="AirPods Pro 2" loading="lazy"/>
+      </div>
       <div class="prod-body">
-        <div class="prod-name">Producto 11</div>
-        <div class="prod-desc">Descripción del producto. Editá este texto con detalles, materiales o características.</div>
-        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20Producto%2011">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="prod-tags"><span class="prod-tag">Apple</span><span class="prod-tag">Audio</span><span class="prod-tag">ANC</span></div>
+        <div class="prod-name">AirPods Pro 2</div>
+        <div class="prod-desc">Cancelación activa de ruido, audio espacial, resistencia al agua. Caja sellada.</div>
+        <a class="prod-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20los%20AirPods%20Pro%202" target="_blank" rel="noopener">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
