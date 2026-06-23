@@ -95,7 +95,7 @@ nav.scrolled{background:rgba(5,5,6,.7);backdrop-filter:blur(20px) saturate(1.2);
   transition:transform .35s var(--ease),background .35s var(--ease);
 }
 .pill:hover{transform:translateY(-2px);background:var(--accent);}
-@media(max-width:760px){.nav-r a:not(.pill){display:none;}}
+@media(max-width:760px){.nav-r a:not(.pill):not(.keep){display:none;}}
 
 /* HERO */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;}
@@ -332,7 +332,7 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
   <a class="logo" href="index.html">all<b>import</b></a>
   <div class="nav-r">
     <a href="#productos">Productos</a>
-    <a href="catalogo.html">Catálogo</a>
+    <a class="keep" href="catalogo.html">Catálogo</a>
     <a href="https://instagram.com/allimport.cba" target="_blank" rel="noopener">Instagram</a>
     <a class="pill" href="https://wa.me/5493517383945" target="_blank" rel="noopener">Escribinos</a>
   </div>
@@ -405,21 +405,21 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
         </article>
 
         <article class="card rv">
-          <div class="shot"><span class="badge hot">Más vendido</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_131723_c9e056f4-a26d-4df6-9f44-1da1bc15276b.jpeg" alt="Pack Accesorios Apple" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
+          <div class="shot"><span class="badge">Combo</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_131723_c9e056f4-a26d-4df6-9f44-1da1bc15276b.jpeg" alt="Pack Accesorios Apple" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
           <div class="meta"><h4>Pack Accesorios Apple</h4><span class="go">→</span></div>
           <p>Todo lo original de Apple en un solo pack: AirPods, MagSafe y carga rápida 20W. Listo para regalar.</p>
           <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Pack%20Accesorios%20Apple.%20%C2%BFCu%C3%A1l%20es%20el%20precio%20y%20qu%C3%A9%20incluye%20exactamente%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg> Consultar precio</a>
         </article>
 
         <article class="card rv">
-          <div class="shot"><span class="badge hot">Más vendido</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_130300_d3352011-b634-4061-b37d-72ef16d1d336.jpeg" alt="Camiseta Argentina Campeón" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
+          <div class="shot"><span class="badge">3 estrellas</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_130300_d3352011-b634-4061-b37d-72ef16d1d336.jpeg" alt="Camiseta Argentina Campeón" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
           <div class="meta"><h4>Argentina Campeón</h4><span class="go">→</span></div>
           <p>3 estrellas, parche oficial FIFA. La que todos buscan. Todos los talles disponibles.</p>
           <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%20Campe%C3%B3n.%20%C2%BFQu%C3%A9%20talles%20tienen%20disponibles%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg> Ver talles y precio</a>
         </article>
 
         <article class="card rv">
-          <div class="shot"><span class="badge hot">Más vendido</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_172626_f66110ee-2428-483d-82b1-acb7ffcaa90a.png" alt="Camiseta Messi #10" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
+          <div class="shot"><span class="badge">Icónica</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_172626_f66110ee-2428-483d-82b1-acb7ffcaa90a.png" alt="Camiseta Messi #10" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
           <div class="meta"><h4>Messi #10</h4><span class="go">→</span></div>
           <p>Versión Player, tela ClimaCool y dorsal oficial. La edición más icónica del campeón.</p>
           <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20la%20Camiseta%20Messi%20%2310.%20%C2%BFQu%C3%A9%20talles%20tienen%20y%20cu%C3%A1l%20es%20el%20precio%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg> Ver talles y precio</a>
@@ -447,21 +447,21 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
         </article>
 
         <article class="card rv">
-          <div class="shot"><span class="badge new">Nuevo ingreso</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_125825_0dfe17a5-ec8b-4d04-9a2f-068624bf384c.jpeg" alt="JBL Go 2" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
+          <div class="shot"><span class="badge">Audio</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_125825_0dfe17a5-ec8b-4d04-9a2f-068624bf384c.jpeg" alt="JBL Go 2" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
           <div class="meta"><h4>JBL Go 2</h4><span class="go">→</span></div>
           <p>Sonido JBL en tu bolsillo. Bluetooth resistente al agua, 5h de batería. Recién importado.</p>
           <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20JBL%20Go%202.%20%C2%BFTienen%20stock%20y%20cu%C3%A1l%20es%20el%20precio%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg> Lo quiero</a>
         </article>
 
         <article class="card rv">
-          <div class="shot"><span class="badge new">Nuevo ingreso</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_130417_4ff42b9a-9c22-4bd8-8bd3-d0885f141a8d.jpeg" alt="MagSafe Battery Pack" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
+          <div class="shot"><span class="badge">MagSafe</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_130417_4ff42b9a-9c22-4bd8-8bd3-d0885f141a8d.jpeg" alt="MagSafe Battery Pack" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
           <div class="meta"><h4>MagSafe Battery Pack</h4><span class="go">→</span></div>
           <p>Energía magnética sin cables. Original Apple, en caja sellada. Carga al instante.</p>
           <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20el%20MagSafe%20Battery%20Pack.%20%C2%BFTienen%20stock%20y%20cu%C3%A1l%20es%20el%20precio%20actual%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg> Lo quiero</a>
         </article>
 
         <article class="card rv">
-          <div class="shot"><span class="badge new">Nuevo ingreso</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_131717_cc90026d-62a2-483a-94be-95d2977296af.jpeg" alt="Cable + Cargador Apple" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
+          <div class="shot"><span class="badge">Carga 20W</span><picture><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FRveGUpkN9UTLjlCwBYmGCtJnB/hf_20260623_131717_cc90026d-62a2-483a-94be-95d2977296af.jpeg" alt="Cable + Cargador Apple" loading="lazy" width="620" height="775" decoding="async"/></picture></div>
           <div class="meta"><h4>Cable + Cargador Apple</h4><span class="go">→</span></div>
           <p>USB-C a Lightning original + adaptador 20W. Carga rápida garantizada, no genéricos.</p>
           <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Vi%20el%20Cable%20%2B%20Cargador%20Apple%20original.%20%C2%BFTienen%20stock%20disponible%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg> Lo quiero</a>
@@ -596,6 +596,10 @@ document.querySelectorAll('.card').forEach(card=>{
   const title=card.querySelector('h4')?.textContent?.trim();
   const cta=card.querySelector('.card-cta');
   if(title&&cta)cta.setAttribute('aria-label',cta.textContent.replace(/\s+/g,' ').trim()+' — '+title);
+  if(cta&&cta.href)card.addEventListener('click',e=>{
+    if(e.target.closest('a')||window.getSelection().toString())return;
+    window.open(cta.href,'_blank','noopener');
+  });
 });
 const nav=document.getElementById('nav'),bar=document.getElementById('progress');
 addEventListener('scroll',()=>{
