@@ -152,6 +152,74 @@ nav.scrolled{background:rgba(5,5,6,.7);backdrop-filter:blur(20px) saturate(1.2);
 .group-head .rule{flex:1;height:1px;background:var(--line);}
 .group-head .count{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--mut2);letter-spacing:.06em;white-space:nowrap;}
 
+/* CARD CTA */
+.card-cta{
+  margin-top:16px;display:flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;
+  padding:13px 20px;border-radius:100px;
+  border:1px solid var(--line2);color:var(--mut);
+  transition:background .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease),color .3s var(--ease);
+}
+.card-cta:hover{background:#25D366;border-color:#25D366;color:#fff;transform:translateY(-2px);}
+.card-cta svg{width:14px;height:14px;flex-shrink:0;}
+
+/* GROUP CTA BAR */
+.group-cta{
+  margin-top:clamp(36px,4vw,56px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:clamp(20px,2.8vw,32px) clamp(24px,3.5vw,44px);
+  border-radius:18px;border:1px solid var(--line);
+  background:var(--glass);flex-wrap:wrap;
+}
+.group-cta p{font-size:14.5px;color:var(--mut);font-weight:300;max-width:44ch;}
+.group-cta p strong{color:var(--ink);font-weight:500;}
+@media(max-width:600px){.group-cta .btn{width:100%;justify-content:center;}}
+
+/* TRUST SECTION */
+.trust{padding:clamp(100px,14vw,180px) 0;border-top:1px solid var(--line);}
+.trust-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,2.4vw,32px);margin-top:clamp(48px,6vw,80px);
+}
+.trust-card{
+  padding:clamp(24px,3vw,40px);border-radius:20px;
+  background:var(--glass);border:1px solid var(--line);
+  transition:border-color .4s var(--ease),background .4s var(--ease);
+}
+.trust-card:hover{border-color:var(--line2);background:rgba(255,255,255,.05);}
+.trust-ic{
+  width:44px;height:44px;border-radius:12px;margin-bottom:24px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,224,218,.07);border:1px solid rgba(0,224,218,.18);
+  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.04em;color:var(--accent);
+}
+.trust-card h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(16px,1.4vw,18px);letter-spacing:-.01em;margin-bottom:10px;}
+.trust-card p{font-size:13.5px;color:var(--mut);font-weight:300;line-height:1.7;}
+@media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:540px){.trust-grid{grid-template-columns:1fr;}}
+
+/* WA FLOATING BUTTON */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:200;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(37,211,102,.38),0 2px 8px rgba(0,0,0,.25);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.wa-float:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 16px 48px rgba(37,211,102,.52),0 4px 14px rgba(0,0,0,.3);}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+.wa-float::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid rgba(37,211,102,.45);
+  animation:wa-pulse 2.2s ease infinite;
+  pointer-events:none;
+}
+@keyframes wa-pulse{0%,100%{transform:scale(1);opacity:.6}55%{transform:scale(1.18);opacity:0}}
+@media(max-width:600px){.wa-float{bottom:20px;right:20px;width:54px;height:54px;}}
+@media(prefers-reduced-motion:reduce){.wa-float::after{animation:none;}}
+
 /* CLOSER */
 .closer{position:relative;text-align:center;padding:clamp(110px,16vw,200px) 0;border-top:1px solid var(--line);}
 .closer h2{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:clamp(34px,6vw,84px);letter-spacing:-.03em;line-height:1;}
@@ -234,7 +302,7 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
         <span class="eyebrow rv">Importación directa</span>
         <h2 class="rv dsp">Originales,<br><span class="thin">sin intermediarios.</span></h2>
       </div>
-      <p class="rv">Traemos cada pieza de origen, sellada y garantizada. Stock real, atención directa. Tocá un producto y te respondemos al instante.</p>
+      <p class="rv">Traemos cada pieza de origen, sellada y garantizada. Stock real, atención directa. Tocá y te respondemos al instante.</p>
     </div>
 
     <!-- TRUST / BRANDS -->
@@ -260,29 +328,33 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
           <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-08.png" alt="AirPods Pro 2" loading="lazy"/></div>
           <div class="meta"><h3>AirPods Pro 2</h3><span class="go">→</span></div>
           <p>El más pedido. Cancelación activa de ruido y audio espacial. Caja sellada, importación directa.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20los%20AirPods%20Pro%202" target="_blank" rel="noopener">Comprar ahora →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesan%20los%20AirPods%20Pro%202.%20%C2%BFTienen%20stock%3F%20%C2%BFCu%C3%A1l%20es%20el%20precio%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Consultar precio</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-04.png" alt="Pack Accesorios Apple" loading="lazy"/></div>
           <div class="meta"><h3>Pack Accesorios Apple</h3><span class="go">→</span></div>
           <p>Todo lo original de Apple en un solo pack: AirPods, MagSafe y carga rápida 20W. Listo para regalar.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Pack%20Accesorios%20Apple" target="_blank" rel="noopener">Comprar ahora →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Pack%20Accesorios%20Apple.%20%C2%BFCu%C3%A1l%20es%20el%20precio%20y%20qu%C3%A9%20incluye%20exactamente%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Consultar precio</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-01.png" alt="Camiseta Argentina Campeón" loading="lazy"/></div>
           <div class="meta"><h3>Argentina Campeón</h3><span class="go">→</span></div>
           <p>3 estrellas, parche oficial FIFA. La que todos buscan. Todos los talles disponibles.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%20Campe%C3%B3n" target="_blank" rel="noopener">Comprar ahora →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%20Campe%C3%B3n.%20%C2%BFQu%C3%A9%20talles%20tienen%20disponibles%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Ver talles y precio</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-02.png" alt="Camiseta Messi #10" loading="lazy"/></div>
           <div class="meta"><h3>Messi #10</h3><span class="go">→</span></div>
           <p>Versión Player, tela ClimaCool y dorsal oficial. La edición más icónica del campeón.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Messi%20%2310" target="_blank" rel="noopener">Comprar ahora →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20la%20Camiseta%20Messi%20%2310.%20%C2%BFQu%C3%A9%20talles%20tienen%20y%20cu%C3%A1l%20es%20el%20precio%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Ver talles y precio</a>
         </article>
+      </div>
+      <div class="group-cta rv">
+        <p><strong>¿Te interesó alguno?</strong> Consultanos ahora — respondemos en minutos por WhatsApp.</p>
+        <a class="btn btn-fill" href="https://wa.me/5493517383945?text=Hola!%20Vi%20sus%20productos%20m%C3%A1s%20vendidos%20y%20quiero%20consultar%20precios." target="_blank" rel="noopener">Consultar por WhatsApp →</a>
       </div>
     </div>
 
@@ -298,29 +370,33 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
           <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-06.png" alt="Kit iPhone 16 Pro Max" loading="lazy"/></div>
           <div class="meta"><h3>Kit iPhone 16 Pro Max</h3><span class="go">→</span></div>
           <p>Recién llegado. Cable 60W + cargador 20W originales. Carga a máxima velocidad, sellado.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Kit%20iPhone%2016%20Pro%20Max" target="_blank" rel="noopener">Lo quiero →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Vi%20el%20Kit%20iPhone%2016%20Pro%20Max.%20%C2%BFTienen%20stock%20disponible%3F%20%C2%BFCu%C3%A1l%20es%20el%20precio%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Lo quiero</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-07.png" alt="JBL Go 2" loading="lazy"/></div>
           <div class="meta"><h3>JBL Go 2</h3><span class="go">→</span></div>
           <p>Sonido JBL en tu bolsillo. Bluetooth resistente al agua, 5h de batería. Recién importado.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20JBL%20Go%202" target="_blank" rel="noopener">Lo quiero →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20JBL%20Go%202.%20%C2%BFTienen%20stock%20y%20cu%C3%A1l%20es%20el%20precio%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Lo quiero</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-09.png" alt="MagSafe Battery Pack" loading="lazy"/></div>
           <div class="meta"><h3>MagSafe Battery Pack</h3><span class="go">→</span></div>
           <p>Energía magnética sin cables. Original Apple, en caja sellada. Carga al instante.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20MagSafe%20Battery%20Pack" target="_blank" rel="noopener">Lo quiero →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Me%20interesa%20el%20MagSafe%20Battery%20Pack.%20%C2%BFTienen%20stock%20y%20cu%C3%A1l%20es%20el%20precio%20actual%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Lo quiero</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-05.png" alt="Cable + Cargador Apple" loading="lazy"/></div>
           <div class="meta"><h3>Cable + Cargador Apple</h3><span class="go">→</span></div>
           <p>USB-C a Lightning original + adaptador 20W. Carga rápida garantizada, no genéricos.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Cable%20y%20Cargador%20Apple" target="_blank" rel="noopener">Lo quiero →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Vi%20el%20Cable%20%2B%20Cargador%20Apple%20original.%20%C2%BFTienen%20stock%20disponible%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Lo quiero</a>
         </article>
+      </div>
+      <div class="group-cta rv">
+        <p><strong>¿Llegó algo nuevo esta semana?</strong> Sí. Escribinos y te contamos qué hay en stock ahora mismo.</p>
+        <a class="btn btn-fill" href="https://wa.me/5493517383945?text=Hola!%20Vi%20los%20nuevos%20ingresos%20y%20quiero%20consultar%20precios%20y%20stock." target="_blank" rel="noopener">Ver novedades →</a>
       </div>
     </div>
 
@@ -336,23 +412,76 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
           <div class="shot"><span class="badge limited">Pocas unidades</span><img src="assets/images/productos/producto-11.png" alt="AirPods Pro 2 Edición" loading="lazy"/></div>
           <div class="meta"><h3>AirPods Pro 2 · Edición</h3><span class="go">→</span></div>
           <p>Cancelación de ruido pro y sonido inmersivo. Edición exclusiva, quedan pocas unidades.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20los%20AirPods%20Pro%202%20Edici%C3%B3n" target="_blank" rel="noopener">Reservar →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20reservar%20los%20AirPods%20Pro%202%20Edici%C3%B3n.%20%C2%BFCu%C3%A1ntas%20unidades%20quedan%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Reservar mi lugar</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge limited">Últimas unidades</span><img src="assets/images/productos/producto-03.png" alt="Camiseta Argentina 3 Estrellas" loading="lazy"/></div>
           <div class="meta"><h3>Argentina · 3 Estrellas</h3><span class="go">→</span></div>
           <p>Edición campeón con las 3 estrellas bordadas. Talles limitados, no se repone.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%203%20Estrellas" target="_blank" rel="noopener">Reservar →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20reservar%20la%20Camiseta%20Argentina%203%20Estrellas.%20%C2%BFQu%C3%A9%20talles%20les%20quedan%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Reservar mi talle</a>
         </article>
 
         <article class="card rv">
           <div class="shot"><span class="badge limited">Stock rotativo</span><img src="assets/images/productos/producto-10.png" alt="Elf Bar" loading="lazy"/></div>
           <div class="meta"><h3>Elf Bar</h3><span class="go">→</span></div>
           <p>Vape desechable importado, sabores premium. Stock rotativo, consultá disponibilidad del día.</p>
-          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20los%20Elf%20Bar" target="_blank" rel="noopener">Consultar stock →</a>
+          <a class="card-cta" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20consultar%20sobre%20los%20Elf%20Bar.%20%C2%BFQu%C3%A9%20sabores%20tienen%20disponibles%20hoy%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> Consultar stock</a>
         </article>
       </div>
+      <div class="group-cta rv">
+        <p><strong>Quedan pocas unidades.</strong> Si te quedaste con las ganas, avisanos — reservamos tu pedido antes de que se agote.</p>
+        <a class="btn btn-fill" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20reservar%20antes%20de%20que%20se%20agote%20el%20stock." target="_blank" rel="noopener">Reservar ahora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" id="confianza">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <span class="eyebrow rv">Por qué elegirnos</span>
+        <h2 class="rv dsp">Confianza<br><span class="thin">garantizada.</span></h2>
+      </div>
+      <p class="rv">Operamos con transparencia total. Cada detalle está pensado para que compres con tranquilidad y recibas exactamente lo que esperás.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card rv">
+        <div class="trust-ic">01</div>
+        <h4>Originales sellados</h4>
+        <p>Cada producto llega en caja original de fábrica. Nunca genéricos, nunca reacondicionados. Lo que comprás es exactamente lo que recibís.</p>
+      </div>
+      <div class="trust-card rv">
+        <div class="trust-ic">02</div>
+        <h4>Importación directa</h4>
+        <p>Sin intermediarios. Compramos en origen para garantizar autenticidad y precio justo. Sabemos de dónde viene cada unidad.</p>
+      </div>
+      <div class="trust-card rv">
+        <div class="trust-ic">03</div>
+        <h4>Atención real, no un bot</h4>
+        <p>Hablás con una persona real. Respondemos en minutos por WhatsApp todos los días, incluso fines de semana.</p>
+      </div>
+      <div class="trust-card rv">
+        <div class="trust-ic">04</div>
+        <h4>Envíos a todo el país</h4>
+        <p>Desde Córdoba a donde estés. Coordinamos el envío, el seguimiento y la entrega en el mismo chat de WhatsApp.</p>
+      </div>
+      <div class="trust-card rv">
+        <div class="trust-ic">05</div>
+        <h4>Importamos a pedido</h4>
+        <p>¿No encontraste lo que buscás? Pedinos y lo conseguimos. Sin compromiso. Cotización gratis en menos de 24h.</p>
+      </div>
+      <div class="trust-card rv">
+        <div class="trust-ic">06</div>
+        <h4>Respuesta en 24h</h4>
+        <p>Prometemos responder antes de 24 horas. En la mayoría de los casos, respondemos en minutos.</p>
+      </div>
+    </div>
+    <div class="group-cta rv" style="margin-top:clamp(48px,6vw,80px);">
+      <p><strong>¿Tenés alguna duda?</strong> Escribinos sin compromiso. Te asesoramos y respondemos al instante.</p>
+      <a class="btn btn-fill" href="https://wa.me/5493517383945?text=Hola!%20Tengo%20una%20consulta%20y%20me%20gustar%C3%ADa%20que%20me%20asesoren." target="_blank" rel="noopener">Hablar con un asesor →</a>
     </div>
   </div>
 </section>
@@ -361,9 +490,12 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
 <section class="closer">
   <div class="wrap rv">
     <h2 class="dsp">¿Buscás algo puntual?<br><span class="thin">Lo conseguimos.</span></h2>
-    <p>Importamos a pedido. Contanos qué necesitás y te cotizamos sin compromiso.</p>
+    <p>Importamos a pedido. Contanos qué necesitás y te cotizamos sin compromiso en menos de 24 horas.</p>
     <div class="cta">
-      <a class="btn btn-fill" href="https://wa.me/5493517383945" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <a class="btn btn-fill" href="https://wa.me/5493517383945?text=Hola!%20Quisiera%20que%20me%20consigan%20algo%20puntual.%20%C2%BFPueden%20ayudarme%3F" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        Escribinos por WhatsApp
+      </a>
       <a class="btn btn-line" href="catalogo.html">Ver catálogo completo</a>
     </div>
   </div>
@@ -404,5 +536,10 @@ if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:
   });
 }
 </script>
+
+<!-- FLOATING WA -->
+<a class="wa-float" href="https://wa.me/5493517383945?text=Hola!%20Visité%20su%20web%20y%20quiero%20consultar%20sobre%20sus%20productos." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+</a>
 </body>
 </html>
