@@ -117,6 +117,9 @@ nav.scrolled{background:rgba(5,5,6,.7);backdrop-filter:blur(20px) saturate(1.2);
   background:rgba(10,10,12,.5);backdrop-filter:blur(12px);border:1px solid var(--line2);
 }
 .badge.hot{background:var(--ink);color:#04100f;border-color:transparent;}
+.badge.new{background:rgba(0,224,218,.12);border-color:rgba(0,224,218,.45);color:var(--accent);}
+.badge.limited{background:rgba(232,177,76,.1);border-color:rgba(232,177,76,.42);color:#E8B14C;display:inline-flex;align-items:center;gap:7px;}
+.badge.limited::before{content:"";width:6px;height:6px;border-radius:50%;background:#E8B14C;box-shadow:0 0 8px rgba(232,177,76,.7);}
 .meta{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:20px;}
 .card h3{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,1.5vw,21px);letter-spacing:-.01em;}
 .go{font-size:13px;color:var(--mut2);transition:color .35s var(--ease),transform .35s var(--ease);}
@@ -124,6 +127,30 @@ nav.scrolled{background:rgba(5,5,6,.7);backdrop-filter:blur(20px) saturate(1.2);
 .card p{margin-top:7px;font-size:13.5px;color:var(--mut);font-weight:300;max-width:40ch;}
 @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.grid{grid-template-columns:1fr;max-width:440px;margin:0 auto;}}
+
+/* BRAND TRUST BAR */
+.marcas{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:clamp(24px,4vw,56px);text-align:center;
+  padding:clamp(30px,4vw,44px) clamp(20px,4vw,48px);
+  margin:0 0 clamp(64px,9vw,108px);border-radius:22px;
+  background:var(--glass);border:1px solid var(--line);
+}
+.marcas .lbl{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--mut2);}
+.marca{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(20px,2.4vw,30px);letter-spacing:.01em;color:var(--mut);transition:color .4s var(--ease),transform .4s var(--ease);}
+.marca:hover{color:var(--ink);transform:translateY(-2px);}
+.marca em{font-style:normal;color:var(--mut2);font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:block;margin-top:4px;font-weight:400;}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--mut2);opacity:.5;}
+@media(max-width:600px){.marcas .dot{display:none;}}
+
+/* PRODUCT GROUPS */
+.group{margin-top:clamp(72px,10vw,128px);}
+.group:first-of-type{margin-top:0;}
+.group-head{display:flex;align-items:center;gap:16px;margin-bottom:clamp(30px,4vw,48px);}
+.group-head h3{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:clamp(24px,3vw,40px);letter-spacing:-.025em;}
+.group-head h3 .ico{color:var(--mut);font-weight:300;}
+.group-head .rule{flex:1;height:1px;background:var(--line);}
+.group-head .count{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--mut2);letter-spacing:.06em;white-space:nowrap;}
 
 /* CLOSER */
 .closer{position:relative;text-align:center;padding:clamp(110px,16vw,200px) 0;border-top:1px solid var(--line);}
@@ -204,89 +231,128 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
   <div class="wrap">
     <div class="sec-top">
       <div>
-        <span class="eyebrow rv">Selección</span>
-        <h2 class="rv dsp">Lo mejor,<br><span class="thin">curado.</span></h2>
+        <span class="eyebrow rv">Importación directa</span>
+        <h2 class="rv dsp">Originales,<br><span class="thin">sin intermediarios.</span></h2>
       </div>
-      <p class="rv">Cada pieza es original y viene sellada. Tocá un producto y te respondemos al instante.</p>
+      <p class="rv">Traemos cada pieza de origen, sellada y garantizada. Stock real, atención directa. Tocá un producto y te respondemos al instante.</p>
     </div>
 
-    <div class="grid">
-      <article class="card rv">
-        <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-01.png" alt="Camiseta Argentina Campeón" loading="lazy"/></div>
-        <div class="meta"><h3>Camiseta Argentina Campeón</h3><span class="go">→</span></div>
-        <p>3 estrellas, parche oficial FIFA 2022. Todos los talles.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%20Campe%C3%B3n" target="_blank" rel="noopener">Consultar</a>
-      </article>
+    <!-- TRUST / BRANDS -->
+    <div class="marcas rv">
+      <span class="lbl">Importamos directo</span>
+      <span class="dot"></span>
+      <span class="marca">Apple</span>
+      <span class="dot"></span>
+      <span class="marca">JBL</span>
+      <span class="dot"></span>
+      <span class="marca">DJI <em>a pedido</em></span>
+    </div>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-02.png" alt="Camiseta Messi #10" loading="lazy"/></div>
-        <div class="meta"><h3>Camiseta Messi #10</h3><span class="go">→</span></div>
-        <p>Versión Player, tela ClimaCool, dorsal oficial.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Messi%20%2310" target="_blank" rel="noopener">Consultar</a>
-      </article>
+    <!-- MÁS VENDIDOS -->
+    <div class="group">
+      <div class="group-head rv">
+        <h3><span class="ico">★</span> Más vendidos</h3>
+        <span class="rule"></span>
+        <span class="count">Los que más se van</span>
+      </div>
+      <div class="grid">
+        <article class="card rv">
+          <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-08.png" alt="AirPods Pro 2" loading="lazy"/></div>
+          <div class="meta"><h3>AirPods Pro 2</h3><span class="go">→</span></div>
+          <p>El más pedido. Cancelación activa de ruido y audio espacial. Caja sellada, importación directa.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20los%20AirPods%20Pro%202" target="_blank" rel="noopener">Comprar ahora →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge">Nuevo</span><img src="assets/images/productos/producto-03.png" alt="Camiseta Argentina 3 Estrellas" loading="lazy"/></div>
-        <div class="meta"><h3>Argentina · 3 Estrellas</h3><span class="go">→</span></div>
-        <p>Edición campeón con las 3 estrellas bordadas.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%203%20Estrellas" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-04.png" alt="Pack Accesorios Apple" loading="lazy"/></div>
+          <div class="meta"><h3>Pack Accesorios Apple</h3><span class="go">→</span></div>
+          <p>Todo lo original de Apple en un solo pack: AirPods, MagSafe y carga rápida 20W. Listo para regalar.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Pack%20Accesorios%20Apple" target="_blank" rel="noopener">Comprar ahora →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-04.png" alt="Pack Accesorios Apple" loading="lazy"/></div>
-        <div class="meta"><h3>Pack Accesorios Apple</h3><span class="go">→</span></div>
-        <p>AirPods, MagSafe, cable USB-C y cargador 20W. Sellado.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Pack%20Accesorios%20Apple" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-01.png" alt="Camiseta Argentina Campeón" loading="lazy"/></div>
+          <div class="meta"><h3>Argentina Campeón</h3><span class="go">→</span></div>
+          <p>3 estrellas, parche oficial FIFA. La que todos buscan. Todos los talles disponibles.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%20Campe%C3%B3n" target="_blank" rel="noopener">Comprar ahora →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge">Nuevo</span><img src="assets/images/productos/producto-05.png" alt="Cable + Cargador Apple" loading="lazy"/></div>
-        <div class="meta"><h3>Cable + Cargador Apple</h3><span class="go">→</span></div>
-        <p>USB-C a Lightning original + adaptador 20W. Carga rápida.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Cable%20y%20Cargador%20Apple" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-02.png" alt="Camiseta Messi #10" loading="lazy"/></div>
+          <div class="meta"><h3>Messi #10</h3><span class="go">→</span></div>
+          <p>Versión Player, tela ClimaCool y dorsal oficial. La edición más icónica del campeón.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Messi%20%2310" target="_blank" rel="noopener">Comprar ahora →</a>
+        </article>
+      </div>
+    </div>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge">Nuevo</span><img src="assets/images/productos/producto-06.png" alt="Kit iPhone 16 Pro Max" loading="lazy"/></div>
-        <div class="meta"><h3>Kit iPhone 16 Pro Max</h3><span class="go">→</span></div>
-        <p>Cable 60W + cargador 20W originales. Máxima velocidad.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Kit%20iPhone%2016%20Pro%20Max" target="_blank" rel="noopener">Consultar</a>
-      </article>
+    <!-- NUEVOS INGRESOS -->
+    <div class="group">
+      <div class="group-head rv">
+        <h3><span class="ico">✦</span> Nuevos ingresos</h3>
+        <span class="rule"></span>
+        <span class="count">Recién importados</span>
+      </div>
+      <div class="grid">
+        <article class="card rv">
+          <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-06.png" alt="Kit iPhone 16 Pro Max" loading="lazy"/></div>
+          <div class="meta"><h3>Kit iPhone 16 Pro Max</h3><span class="go">→</span></div>
+          <p>Recién llegado. Cable 60W + cargador 20W originales. Carga a máxima velocidad, sellado.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Kit%20iPhone%2016%20Pro%20Max" target="_blank" rel="noopener">Lo quiero →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge">Nuevo</span><img src="assets/images/productos/producto-07.png" alt="JBL Go 2" loading="lazy"/></div>
-        <div class="meta"><h3>JBL Go 2</h3><span class="go">→</span></div>
-        <p>Bluetooth resistente al agua. 5h de batería. Sonido JBL.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20JBL%20Go%202" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-07.png" alt="JBL Go 2" loading="lazy"/></div>
+          <div class="meta"><h3>JBL Go 2</h3><span class="go">→</span></div>
+          <p>Sonido JBL en tu bolsillo. Bluetooth resistente al agua, 5h de batería. Recién importado.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20JBL%20Go%202" target="_blank" rel="noopener">Lo quiero →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-08.png" alt="AirPods Pro 2" loading="lazy"/></div>
-        <div class="meta"><h3>AirPods Pro 2</h3><span class="go">→</span></div>
-        <p>Cancelación activa, audio espacial. Caja sellada.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20los%20AirPods%20Pro%202" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-09.png" alt="MagSafe Battery Pack" loading="lazy"/></div>
+          <div class="meta"><h3>MagSafe Battery Pack</h3><span class="go">→</span></div>
+          <p>Energía magnética sin cables. Original Apple, en caja sellada. Carga al instante.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20MagSafe%20Battery%20Pack" target="_blank" rel="noopener">Lo quiero →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge">Apple</span><img src="assets/images/productos/producto-09.png" alt="MagSafe Battery Pack" loading="lazy"/></div>
-        <div class="meta"><h3>MagSafe Battery Pack</h3><span class="go">→</span></div>
-        <p>Energía magnética sin cables. Original, en caja sellada.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20MagSafe%20Battery%20Pack" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge new">Nuevo ingreso</span><img src="assets/images/productos/producto-05.png" alt="Cable + Cargador Apple" loading="lazy"/></div>
+          <div class="meta"><h3>Cable + Cargador Apple</h3><span class="go">→</span></div>
+          <p>USB-C a Lightning original + adaptador 20W. Carga rápida garantizada, no genéricos.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20el%20Cable%20y%20Cargador%20Apple" target="_blank" rel="noopener">Lo quiero →</a>
+        </article>
+      </div>
+    </div>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-10.png" alt="Elf Bar" loading="lazy"/></div>
-        <div class="meta"><h3>Elf Bar</h3><span class="go">→</span></div>
-        <p>Vape desechable importado. Sabores premium.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20los%20Elf%20Bar" target="_blank" rel="noopener">Consultar</a>
-      </article>
+    <!-- STOCK LIMITADO -->
+    <div class="group">
+      <div class="group-head rv">
+        <h3><span class="ico">◆</span> Stock limitado</h3>
+        <span class="rule"></span>
+        <span class="count">Últimas unidades</span>
+      </div>
+      <div class="grid">
+        <article class="card rv">
+          <div class="shot"><span class="badge limited">Pocas unidades</span><img src="assets/images/productos/producto-11.png" alt="AirPods Pro 2 Edición" loading="lazy"/></div>
+          <div class="meta"><h3>AirPods Pro 2 · Edición</h3><span class="go">→</span></div>
+          <p>Cancelación de ruido pro y sonido inmersivo. Edición exclusiva, quedan pocas unidades.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20los%20AirPods%20Pro%202%20Edici%C3%B3n" target="_blank" rel="noopener">Reservar →</a>
+        </article>
 
-      <article class="card rv">
-        <div class="shot"><span class="badge hot">Más vendido</span><img src="assets/images/productos/producto-11.png" alt="AirPods Pro 2" loading="lazy"/></div>
-        <div class="meta"><h3>AirPods Pro 2 · Edición</h3><span class="go">→</span></div>
-        <p>Cancelación de ruido pro. Sonido inmersivo. Listos para usar.</p>
-        <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20los%20AirPods%20Pro%202" target="_blank" rel="noopener">Consultar</a>
-      </article>
+        <article class="card rv">
+          <div class="shot"><span class="badge limited">Últimas unidades</span><img src="assets/images/productos/producto-03.png" alt="Camiseta Argentina 3 Estrellas" loading="lazy"/></div>
+          <div class="meta"><h3>Argentina · 3 Estrellas</h3><span class="go">→</span></div>
+          <p>Edición campeón con las 3 estrellas bordadas. Talles limitados, no se repone.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20la%20Camiseta%20Argentina%203%20Estrellas" target="_blank" rel="noopener">Reservar →</a>
+        </article>
+
+        <article class="card rv">
+          <div class="shot"><span class="badge limited">Stock rotativo</span><img src="assets/images/productos/producto-10.png" alt="Elf Bar" loading="lazy"/></div>
+          <div class="meta"><h3>Elf Bar</h3><span class="go">→</span></div>
+          <p>Vape desechable importado, sabores premium. Stock rotativo, consultá disponibilidad del día.</p>
+          <a class="badge" style="position:static;margin-top:14px;width:fit-content;background:transparent;border-color:var(--line2)" href="https://wa.me/5493517383945?text=Hola!%20Quiero%20info%20sobre%20los%20Elf%20Bar" target="_blank" rel="noopener">Consultar stock →</a>
+        </article>
+      </div>
     </div>
   </div>
 </section>
