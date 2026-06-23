@@ -81,6 +81,7 @@ nav.scrolled{background:rgba(5,5,6,.7);backdrop-filter:blur(20px) saturate(1.2);
 .btn-fill:hover{transform:translateY(-3px);}
 .btn-line{border:1px solid var(--line2);color:var(--ink);backdrop-filter:blur(8px);}
 .btn-line:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.4);}
+.btn:active{transform:scale(.97);transition-duration:.1s;}
 .metrics{display:flex;gap:clamp(32px,6vw,80px);margin-top:64px;flex-wrap:wrap;}
 .metric .n{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.4vw,40px);font-weight:400;letter-spacing:-.02em;}
 .metric .l{margin-top:4px;font-size:12px;color:var(--mut2);letter-spacing:.14em;text-transform:uppercase;}
@@ -99,10 +100,11 @@ nav.scrolled{background:rgba(5,5,6,.7);backdrop-filter:blur(20px) saturate(1.2);
 .shot{
   position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;
   background:var(--bg2);border:1px solid var(--line);
-  transition:transform .6s var(--ease),border-color .6s var(--ease),box-shadow .6s var(--ease);
+  transform-origin:center bottom;
+  transition:transform .65s var(--ease),border-color .65s var(--ease),box-shadow .65s var(--ease);
 }
 .shot img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),filter .6s var(--ease);filter:saturate(.95);}
-.card:hover .shot{transform:translateY(-8px);border-color:var(--line2);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);}
+.card:hover .shot{transform:translateY(-8px) scale(1.02);border-color:var(--line2);box-shadow:0 40px 80px -30px rgba(0,0,0,.85),0 0 60px -20px rgba(0,224,218,.06);}
 .card:hover .shot img{transform:scale(1.05);filter:saturate(1.05);}
 .shot::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(0,224,218,.12),transparent 60%);
@@ -144,7 +146,17 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
 .rv.in{opacity:1;transform:none;}
 .blur{opacity:0;filter:blur(20px);transform:translateY(18px);transition:opacity 1.2s var(--ease),filter 1.2s var(--ease),transform 1.2s var(--ease);}
 .blur.in{opacity:1;filter:blur(0);transform:none;}
-@media(prefers-reduced-motion:reduce){.rv,.blur{opacity:1;filter:none;transform:none;transition:none;}.shot,.shot img{transition:none;}}
+
+/* Text reveal — words slide up from behind a clip mask */
+.word-wrap{display:inline-block;overflow:hidden;}
+.word{display:inline-block;transform:translateY(110%);transition:transform .95s var(--ease);transition-delay:var(--wd,0ms);}
+.text-rv.in .word{transform:translateY(0);}
+
+@media(prefers-reduced-motion:reduce){
+  .rv,.blur{opacity:1;filter:none;transform:none;transition:none;}
+  .word{transform:none;transition:none;}
+  .shot,.shot img{transition:none;}
+}
 </style>
 </head>
 <body>
@@ -166,17 +178,20 @@ footer{border-top:1px solid var(--line);padding:48px 0;}
   </video>
   <div class="veil"></div>
   <div class="hero-in wrap">
-    <span class="eyebrow blur">Importación tecnológica premium</span>
-    <h1 class="blur">Importamos<br><span class="thin">calidad.</span></h1>
-    <p class="sub rv">Tecnología, audio y accesorios originales. Elegidos uno por uno, sellados y garantizados. Lo global, a tu alcance.</p>
-    <div class="cta rv">
+    <span class="eyebrow blur" style="transition-delay:.15s">Importación tecnológica premium</span>
+    <h1 class="text-rv">
+      <span class="word-wrap"><span class="word" style="--wd:340ms">Importamos</span></span><br>
+      <span class="thin"><span class="word-wrap"><span class="word" style="--wd:500ms">calidad.</span></span></span>
+    </h1>
+    <p class="sub rv" style="transition-delay:.72s">Tecnología, audio y accesorios originales. Elegidos uno por uno, sellados y garantizados. Lo global, a tu alcance.</p>
+    <div class="cta rv" style="transition-delay:.88s">
       <a class="btn btn-fill" href="https://wa.me/5493517383945" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.392-6.682c-.301-.15-1.767-.872-2.04-.972-.273-.099-.472-.148-.671.15-.198.297-.767.971-.94 1.17-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
         Comprar por WhatsApp
       </a>
       <a class="btn btn-line" href="#productos">Ver productos</a>
     </div>
-    <div class="metrics rv">
+    <div class="metrics rv" style="transition-delay:1.05s">
       <div class="metric"><div class="n">100%</div><div class="l">Originales</div></div>
       <div class="metric"><div class="n">24h</div><div class="l">Respuesta</div></div>
       <div class="metric"><div class="n">Córdoba</div><div class="l">Envíos a todo el país</div></div>
@@ -307,9 +322,9 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-document.querySelectorAll('.rv,.blur').forEach((el,i)=>{io.observe(el);});
-document.querySelectorAll('.grid').forEach(g=>[...g.children].forEach((c,i)=>c.style.transitionDelay=(i%3)*80+'ms'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+document.querySelectorAll('.rv,.blur,.text-rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.grid').forEach(g=>[...g.children].forEach((c,i)=>c.style.transitionDelay=i*55+'ms'));
 
 // cursor glow on product shots (fine pointer only)
 if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
